@@ -8,6 +8,7 @@ dbHistoryCur = None
 dbRatesCon = None
 dbRatesCur = None
 
+
 def openHistoryDB(dbFilename):
     global dbHistoryCon
     global dbHistoryCur
@@ -15,7 +16,7 @@ def openHistoryDB(dbFilename):
     try:
         dbHistoryCon = sqlite3.connect(dbFilename, detect_types=sqlite3.PARSE_DECLTYPES, check_same_thread=False)
         dbHistoryCur = dbHistoryCon.cursor()
-        return (dbHistoryCon, dbHistoryCur)
+        return dbHistoryCon, dbHistoryCur
 
     except Exception as e:
         print("Error %s:" % str(e))
